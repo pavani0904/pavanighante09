@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class Complex
+{
+    float real, imag;
+
+public:
+    Complex(float r = 0, float i = 0)
+    {
+        real = r;
+        imag = i;
+    }
+
+    void accept()
+    {
+        cout << "Enter real and imaginary parts: ";
+        cin >> real >> imag;
+    }
+
+    void display()
+    {
+        cout << real;
+        if (imag >= 0)
+            cout << " + " << imag << "i";
+        else
+            cout << " - " << -imag << "i";
+        cout << endl;
+    }
+Complex subtract(Complex c)
+    {
+        return Complex(real - c.real, imag - c.imag);
+    }
+
+};
+int main()
+{
+    Complex c1, c2, result;
+
+    cout << "First complex number:" << endl;
+    c1.accept();
+
+    cout << "Second complex number:" << endl;
+    c2.accept();
+    cout << "Subtraction: ";
+    result = c1.subtract(c2);
+    result.display();
+    return 0;
+}
