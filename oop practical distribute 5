@@ -1,0 +1,32 @@
+
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    void student()
+    {
+        cout << "Name: Rahul" << endl;
+        cout << "Roll No: 10" << endl;
+    }
+
+    void student(int marks)
+    {
+        student();
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main()
+{
+    Student s;
+
+    cout << "Student Details without Marks:" << endl;
+    s.student();
+
+    cout << "\nStudent Details with Marks:" << endl;
+    s.student(85);
+
+    return 0;
+}
