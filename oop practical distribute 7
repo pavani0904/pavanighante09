@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class String {
+    char str[100];
+
+public:
+    String() {
+        cout << "Constructor called" << endl;
+        cout << "Enter a sentence: ";
+        cin.getline(str, 100);
+    }
+
+    void display() {
+        cout << "Sentence: " << str << endl;
+    }
+
+    ~String() {
+        cout << "Destructor called" << endl;
+    }
+};
+
+int main() {
+    String s;
+    s.display();
+    return 0;
+}
