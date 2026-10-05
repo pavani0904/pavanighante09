@@ -1,62 +1,47 @@
-
 #include <iostream>
 using namespace std;
 
-void readArray(int a[], int n)
+void read(int a[], int n)
 {
-    cout << "Enter " << n << " elements: ";
-    for (int i = 0; i < n; i++)
-    {
+    for(int i = 0; i < n; i++)
         cin >> a[i];
-    }
 }
 
-void displayArray(const int a[], int n)
+void swap(int &x, int &y)
 {
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i] << " ";
-    }
-    cout << endl;
-}
-
-void swapValues(int &x, int &y)
-{
-    int temp = x;
+    int t = x;
     x = y;
-    y = temp;
+    y = t;
 }
 
-void sortArray(int a[], int n)
+void sort(int a[], int n)
 {
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - i - 1; j++)
-        {
-            if (a[j] > a[j + 1])
-            {
-                swapValues(a[j], a[j + 1]);
-            }
-        }
-    }
+    for(int i = 0; i < n-1; i++)
+        for(int j = i+1; j < n; j++)
+            if(a[i] > a[j])
+                swap(a[i], a[j]);
+}
+
+void display(int a[], int n)
+{
+    for(int i = 0; i < n; i++)
+        cout << a[i] << " ";
 }
 
 int main()
 {
-    int a[100], n;
+    int a[50], n;
 
-    cout << "Enter number of elements: ";
+    cout << "Enter size: ";
     cin >> n;
 
-    readArray(a, n);
+    cout << "Enter numbers: ";
+    read(a, n);
 
-    cout << "Original array: ";
-    displayArray(a, n);
+    sort(a, n);
 
-    sortArray(a, n);
-
-    cout << "Sorted array in ascending order: ";
-    displayArray(a, n);
+    cout << "Sorted array: ";
+    display(a, n);
 
     return 0;
 }
