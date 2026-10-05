@@ -7,19 +7,19 @@ void read(int a[], int n)
         cin >> a[i];
 }
 
-void swap(int &x, int &y)
+void swapNum(int &x, int &y)
 {
-    int t = x;
+    int temp = x;
     x = y;
-    y = t;
+    y = temp;
 }
 
-void sort(int a[], int n)
+void sortArray(int a[], int n)
 {
     for(int i = 0; i < n-1; i++)
         for(int j = i+1; j < n; j++)
             if(a[i] > a[j])
-                swap(a[i], a[j]);
+                swapNum(a[i], a[j]);
 }
 
 void display(int a[], int n)
@@ -38,7 +38,7 @@ int main()
     cout << "Enter numbers: ";
     read(a, n);
 
-    sort(a, n);
+    sortArray(a, n);
 
     cout << "Sorted array: ";
     display(a, n);
