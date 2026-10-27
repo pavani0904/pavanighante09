@@ -1,0 +1,72 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BasicInfo
+{
+protected:
+    int id;
+    string name;
+
+public:
+    void readBasicInfo()
+    {
+        cout << "Enter employee ID: ";
+        cin >> id;
+
+        cout << "Enter employee name: ";
+        getline(cin >> ws, name);
+    }
+};
+
+class DepartmentInfo
+{
+protected:
+    string department, designation;
+
+public:
+    void readDepartmentInfo()
+    {
+        cout << "Enter department: ";
+        getline(cin >> ws, department);
+
+        cout << "Enter designation: ";
+        getline(cin >> ws, designation);
+    }
+};
+
+class Employee : public BasicInfo, public DepartmentInfo
+{
+    float salary;
+
+public:
+    void read()
+    {
+        readBasicInfo();
+        readDepartmentInfo();
+
+        cout << "Enter salary: ";
+        cin >> salary;
+    }
+
+    void display()
+    {
+        cout << "\nEmployee Information\n";
+        cout << "Employee ID : " << id << endl;
+        cout << "Name : " << name << endl;
+        cout << "Department : " << department << endl;
+        cout << "Designation : " << designation << endl;
+        cout << "Salary : " << salary << endl;
+    }
+};
+
+int main()
+{
+    Employee e;
+
+    e.read();
+    e.display();
+
+    return 0;
+}
